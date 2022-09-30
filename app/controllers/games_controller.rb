@@ -14,7 +14,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.new(params[game_params])  #Por que se declara una variable global?
+    game = Game.new(game_params) #Por que se declara una variable global?
     game.save
     redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
   end
