@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  before_action :set_list, only: [:new, :create, :show, :edit]
+  before_action :set_game, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def index
     @games = Game.all
@@ -20,7 +20,16 @@ class GamesController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    @game.update(game_params)
+    redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
   end
 
   private
