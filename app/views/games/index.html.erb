@@ -1,1 +1,23 @@
-<h1>Hola</h1>
+<h1>Games</h1>
+<div class="cards">
+  <%= @games.each do |game|  %>
+
+    <div class="card" style="width: 18rem;">
+      <img src="<%= game.image %>" class="card-img-top" alt="<%= game.title %>">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= game.title %></h5>
+
+          <div class="alert alert-dark" role="alert">
+            <%= game.category %>
+          </div>
+
+          <p class="card-text"> <%= game.description %> </p>
+          <p> <%= game.price %> </p>
+          <button class="btn btn-primary"> <%= linkt_to "See More", game_path %> </button>
+        </div>
+
+    </div>
+
+  <% end %>
+</div>

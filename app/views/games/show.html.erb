@@ -1,1 +1,19 @@
-<h1>Hola Show</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random/1000x500);">
+
+  <div class="container">
+
+    <h1><%= @game.title %></h1>
+
+    <div class="alert alert-dark" role="alert">
+      <%= @game.category %>
+    </div>
+
+    <p> <%= @game.price %> </p>
+    <button> <%= link_to "booking", new_game_booking_path %> </button>
+  </div>
+
+</div>
+
+<div class="container m-5 p-4">
+  <p class="card-text"> <%= @game.description %> </p>
+</div>
