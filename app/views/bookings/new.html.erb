@@ -1,1 +1,23 @@
-<h1>hola new</h1>
+<div>
+  <h1>Booking</h1>
+</div>
+
+<div class="card">
+  <h2 class="card-header"><%= @game.title %></h2>
+  <div class="card-body">
+    <h3 class="card-title">Description</h3>
+    <p class="card-text"><%= @game.description %></p>
+    <div class="bg-white rounded p-3 shadow">
+        <h3>Create new list</h3>
+    </div>
+    <div class = "card">
+      <%= link_to "Return a game", game_path(@game)  %>
+    </div>
+  </div>
+</div>
+
+<%= form_with model: @booking do |form| %>
+  <%= form.text_field :title %>
+  <%= form.text_area :body %>
+  <%= form.submit %>
+<% end %>

@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
   end
 
   def set_game
-    @games = Game.find(params[:game_id])
+    @game = Game.find(params[:game_id])
   end
 
   def set_user
