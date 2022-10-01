@@ -1,12 +1,13 @@
 class GamesController < ApplicationController
 
-  before_action :set_game, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_game, only: [:create, :show, :edit, :update, :destroy]
 
   def index
     @games = Game.all
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -14,9 +15,12 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.new(game_params) #Por que se declara una variable global?
-    game.save
-    redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
+    @game = Game.new(game_params)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -24,12 +28,12 @@ class GamesController < ApplicationController
 
   def update
     @game.update(game_params)
-    redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
+    redirect_to game_path(game)
   end
 
   def destroy
     @game.destroy
-    redirect_to game_path(game) #Falta añadir que redirecione al perfil de la persona que lo creò, tengo que tener en cuenta las rutas que va a crear Thomas porque hay que tener en cuenta el usuario
+    redirect_to game_path
   end
 
   private
@@ -39,6 +43,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :description, :price, :image, :categor) #Falta agregar una referencia a users ya que cada juego està relacionado a una persona que lo sibiò
+    params.require(:game).permit(:title, :description, :price, :image, :categor)
   end
 end
