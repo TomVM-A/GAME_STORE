@@ -3,13 +3,13 @@
     <div class="col-12 col-sm-6">
       <h1 class="row justify-content-center" >Booking</h1>
       <div class="card">
-      <h2 class="card-header"><b><%= @game.title %></b></h2>
+      <h2 class="card-header"><b><%= @booking.game.title %></b></h2>
         <div class="card-body">
           <h5 class="card-title"><b>Description</b></h5>
-          <p class="card-text"><%= @game.description.capitalize %></p>
+          <p class="card-text"><%= @booking.game.description.capitalize %></p>
           <div class="row">
             <h5><b> Date of booking </b></h5>
-              <%= simple_form_for [@game, @booking] do |f| %>
+              <%= simple_form_for [@booking] do |f| %>
                 <%= f.input :start_date,
                             as: :date,
                             input_html: { autocomplete: "Start date" }%>
@@ -17,7 +17,7 @@
                             as: :date,
                             input_html: { autocomplete: "End date" }%>
                 <%= f.submit class:"btn btn-primary" %>
-                <%= link_to "Return game", game_path(@game), class:"btn btn-outline-primary"  %>
+                <%= link_to "Return game", game_path(@booking), class:"btn btn-outline-primary"  %>
               <% end %>
           </div>
         </div>

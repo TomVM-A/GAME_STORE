@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:destroy, :show]
+  before_action :set_booking, only: [:destroy, :show, :edit, :update]
   before_action :set_game, only: [:new, :create]
   before_action :set_user, only: [:index, :create]
 
@@ -15,11 +15,22 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.game = @game
     @booking.user = @user
     if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @booking.update
       redirect_to booking_path(@booking)
     else
       render :new
