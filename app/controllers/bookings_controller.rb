@@ -16,11 +16,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.game = @game
     @booking.user = @user
     if @booking.save
-      rendirect_to game_path(@game)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    rendirect_to game_path(@booking.game), status: :see_other
+    redirect_to game_path(@booking.game), status: :see_other
   end
 
   private
