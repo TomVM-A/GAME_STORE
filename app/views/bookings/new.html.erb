@@ -7,17 +7,25 @@
   <div class="card-body">
     <h3 class="card-title">Description</h3>
     <p class="card-text"><%= @game.description %></p>
-    <div class="bg-white rounded p-3 shadow">
-        <h3>Create new list</h3>
-    </div>
     <div class = "card">
-      <%= link_to "Return a game", game_path(@game)  %>
+      <%= link_to "return game", game_path(@game)  %>
     </div>
   </div>
 </div>
 
-<%= form_with model: @booking do |form| %>
-  <%= form.text_field :title %>
-  <%= form.text_area :body %>
-  <%= form.submit %>
-<% end %>
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create new list</h3>
+        <%= simple_form_for [@game, @booking] do |f| %>
+          <%= f.input :start_date,
+                      as: :date,
+                      input_html: { autocomplete: "Start date" }%>
+          <%= f.input :end_date,
+                      as: :date,
+                      input_html: { autocomplete: "End date" }%>
+          <%= f.submit class:"btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
