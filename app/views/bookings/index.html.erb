@@ -16,8 +16,8 @@
       <tr>
           <th scope="row"> <%= b.id %> </th>
           <td> <%= Game.find(b.game_id).title %> </td>
-          <td> <%= b.start_date %> </td>
-          <td> <%= b.end_date %> </td>
+          <td> <%= b.start_date.to_fs[0,10] %> </td>
+          <td> <%= b.end_date.to_fs[0,10] %> </td>
           <td> <%= Game.find(b.game_id).price %> </td>
           <% days_left_in_seconds = b.end_date - b.start_date  %>
           <% days_left = days_left_in_seconds / 86400 %>
