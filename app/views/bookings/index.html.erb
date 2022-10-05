@@ -1,1 +1,28 @@
-<h1>Hola index</h1>
+<h1>Your Bookings</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Booking id</th>
+      <th scope="col">Game</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Price</th>
+      <th scope="col">Days Left</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @booking.each do |b| %>
+      <tr>
+          <th scope="row"> <%= b.id %> </th>
+          <td> <%= Game.find(b.game_id).title %> </td>
+          <td> <%= b.start_date %> </td>
+          <td> <%= b.end_date %> </td>
+          <td> <%= Game.find(b.game_id).price %> </td>
+          <% days_left_in_seconds = b.end_date - b.start_date  %>
+          <% days_left = days_left_in_seconds / 86400 %>
+          <td> <%= days_left.to_i %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
