@@ -2,3 +2,8 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 <script>console.log("Hello javaScript")</script>
 <%= link_to "Store", games_path %>
+
+<% @games.each do |game| %>
+  <h1><%game.category   %></h1>
+
+<% end %>
