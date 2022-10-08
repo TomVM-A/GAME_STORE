@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-md navbar-light navbar-lewagon border-bottom border-3">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665095897/zarla-open-game-1x1-2400x2400-20211022-6wy4fwcwfvyy7p34gb6g_xt171u.png" %>
     <% end %>
 
@@ -12,10 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665251769/cute-stylish-gamer-girl-cartoon-character-gaming-logo_162048-247_heai0p.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
