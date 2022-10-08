@@ -1,7 +1,11 @@
-  <h1 class= "d-flex mt-5 h1 display-1 center-position">Gamer Star 🕹️💫🦄</h1>
+  <h1 class= "d-flex mx-3 mt-5 h1 display-1 center-position">Gamer Star 🕹️💫🦄</h1>
 
-<div class="row mb-3">
-  <h2 class= "p-3">Información</h2>
+<div class="row mb-3 mx-3">
+  <div class="card justify-content-center">
+    <div class="card-body text-center">
+      <h2 class= "p-3 fw-bold">Información</h2>
+    </div>
+  </div>
 
 <div class="about-container">
 
@@ -12,12 +16,12 @@
       <%= image_tag("jiggly.jpg", class: "float-end img-fluid ") %>
     </div>
     <div class="col-md-8">
-      <div class="card-body">
+      <div class="card-body justify-content-center p-5">
           <ul>
-            <li class="h4">Nombre: <%= @user.first_name %></li>
-            <li class="h4">Apellido: <%= @user.last_name %></li>
-            <li class="h4">Correo eléctronico: <%= @user.email %></li>
-            <li class="h4">Se ha unido el: <%= @user.created_at.to_fs[0,10] %></li>
+            <li class="h4">🕹️ Nombre: <%= @user.first_name %></li>
+            <li class="h4">🕹️ Apellido: <%= @user.last_name %></li>
+            <li class="h4">🕹️ Correo eléctronico: <%= @user.email %></li>
+            <li class="h4">🕹️ Se ha unido el: <%= @user.created_at.to_fs[0,10] %></li>
           </ul>
       </div>
     </div>
