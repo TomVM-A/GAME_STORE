@@ -1,19 +1,51 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random/1000x500);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665247462/wp8987980-action-4k-games-wallpapers_xeveds.jpg);">
+
+
+
 
   <div class="container">
 
     <h1><%= @game.title %></h1>
+    <button type="button" class="btn btn-secondary"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="This top tooltip is themed via CSS variables.">
+        <%= @game.category.name %>
+    </button>
 
-    <div class="alert alert-dark" role="alert">
-      <%= @game.category %>
+    <div class="card" style="width: 52rem;">
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665098895/gaming-1_jzvafr.jpg" class="d-block w-100" alt="...">
     </div>
-
-    <p> <%= @game.price %> </p>
-    <button> <%= link_to "booking", new_game_booking_path(@game) %> </button>
+    <div class="carousel-item">
+      <img src="https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665246563/wp8987977-action-4k-games-wallpapers_ttk9ju.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665246730/wp2695324-wallpaper-games_jjbax8.jpg" class="d-block w-100" alt="...">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <div class="card-body">
 
+    <h5 class="card-title"><%= @game.description %></h5>
+    <p class="card-text"></p>
+    <button type="button" class="btn btn-success"> <%= link_to "booking", new_game_booking_path(@game) %> </button>
+  </div>
 </div>
 
-<div class="container m-5 p-4">
-  <p class="card-text"> <%= @game.description %> </p>
+    <p> Price: $<%= @game.price %> </p>
+
+  </div>
+
 </div>
