@@ -1,0 +1,44 @@
+  <h1 class= "d-flex mt-5">My Profile</h1>
+
+<div class="row mb-3">
+  <h2 class= "p-3">My Data</h2>
+
+  <div class="d-flex flex-column border border-4 border-light rounded-3 p-5">
+    <div class="p2">Name: <%= @user.first_name %></div><br>
+    <div class="p2">Last name: <%= @user.last_name %></div><br>
+    <div class="p2">Email: <%= @user.email %></div><br>
+    <div class="p2">Created at: <%= @user.created_at.to_fs[0,10] %></div><br>
+  </div>
+</div>
+
+<div class="row justify-content-between mb-5">
+
+  <div class="col-8 me-2">
+    <h3>My Games</h3>
+
+    <% if @user.games.empty? %>
+      <small><em class="text-muted">Post up your first game</em></small>
+    <% end %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">title</th>
+          <th scope="col">price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @user.games.each do |game| %>
+        <tr>
+          <th scope="row"><%= game.title  %></th>
+          <td> <%= game.price  %> </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-3 bg-success bg-gradient d-flex justify-content-center align-items-center ms-2 badge text-wrap fs-3 font-monospace text-decoration-none border border-4 rounded-3" style="color: white">
+    <p class = "booking-buttom"><%= link_to "My Bookings", bookings_path %> </p>
+  </div>
+</div>
