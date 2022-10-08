@@ -1,11 +1,10 @@
 class BookingsController < ApplicationController
-
   before_action :set_booking, only: [:destroy, :show, :edit, :update]
   before_action :set_game, only: [:new, :create]
   before_action :set_user, only: [:index, :create]
 
   def index
-    @booking = Booking.user_bookings(@user)
+    @bookings = Booking.user_bookings(@user)
   end
 
   def new
@@ -25,7 +24,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -33,7 +32,7 @@ class BookingsController < ApplicationController
     if @booking.update
       redirect_to booking_path(@booking)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
