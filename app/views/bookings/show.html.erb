@@ -1,1 +1,19 @@
-<h1>hola show</h1>
+
+
+<div class= "container-image-booking-show">
+  <%= image_tag @booking.game.image %>
+</div>
+
+<div class="card" >
+
+  <div class="card-header justify-content-center text-center text-uppercase fw-bold">
+    ¡¡Congratulations Your Booking has been registered!!
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title"> Name of your new adventure: <%= @booking.game.title %></h5>
+    <p class="card-text"><span class="fw-italic font-monospace"> Description: </span> <%= @booking.game.description %> </p>
+    <a href="<%= games_path %>" class="btn btn-primary">Look more adventures</a>
+  </div>
+
+</div>
