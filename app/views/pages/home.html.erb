@@ -6,7 +6,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag "banner.jpg", class: "d-block baner-image"%>
+      <%= image_tag "https://res.cloudinary.com/dtzj3sqwl/image/upload/v1665248371/58676_iarnpa.jpg", class: "d-block baner-image"%>
     </div>
     <div class="carousel-item">
       <%= image_tag "banner1.jpg", class: "d-block baner-image"%>
@@ -33,15 +33,14 @@
     </p>
   </div>
   <div class="p-3 bd-highlight col-2 text-center
-"><%= link_to "Get it now!", games_path %></div>
+"><%= link_to "Get it now!", games_path, class: "btn btn-warning" %></div>
 </div>
-
 
 <!-- code a "How it works" section -->
 
 <div class="mt-4">
   <div class="row gy-3">
-    <h2 class = "text-center">categories</h2>
+    <h2 class = "text-center">Categories</h2>
     <% @categories.each do |category|%>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <%= link_to category_path(category), class: "car-link" do%>

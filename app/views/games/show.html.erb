@@ -40,7 +40,7 @@
 
     <h5 class="card-title"><%= @game.description %></h5>
     <p class="card-text"></p>
-    <button type="button" class="btn btn-success"> <%= link_to "booking", new_game_booking_path(@game) %> </button>
+    <%= link_to "booking", new_game_booking_path(@game), class: "btn btn-warning" %> </button>
   </div>
 </div>
 
