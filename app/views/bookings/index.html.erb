@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @booking.each do |b| %>
+    <% @bookings.each do |b| %>
       <tr>
           <th scope="row"> <%= b.id %> </th>
           <td> <%= Game.find(b.game_id).title %> </td>

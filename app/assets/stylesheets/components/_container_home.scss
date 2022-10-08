@@ -1,6 +1,16 @@
 .container {
   width: 900px;
   margin: auto;
+  min-height: 400px;
+}
+
+.container-image-booking-show {
+  img{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+  }
+
 }
 
 .banner h1 {

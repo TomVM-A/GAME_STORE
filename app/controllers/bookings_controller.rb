@@ -22,7 +22,8 @@ class BookingsController < ApplicationController
     @booking.game = @game
     @booking.user = @user
     if @booking.save
-      redirect_to booking_path(@booking)
+
+      redirect_to "/bookings/#{@booking.id}"
     else
       render :new, status: :unprocessable_entity
     end
