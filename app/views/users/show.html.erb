@@ -1,63 +1,67 @@
-  <h1 class= "d-flex mx-3 mt-5 h1 display-1 center-position">Gamer Star 🕹️💫🦄</h1>
-
-<div class="row mb-3 mx-3">
-  <div class="card justify-content-center">
-    <div class="card-body text-center">
-      <h2 class= "p-3 fw-bold">Información</h2>
-    </div>
+<div class="container">
+  <div class="text-center">
+    <h1 class="mx-3 mt-5 display-1">Gamer Star 🕹️💫🦄</h1>
   </div>
-
-<div class="about-container">
-
-<div class="d-flex flex-column border border-4 border-light rounded-3 p-5">
-<div class="card mb-3" style="max-width: 100%;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <%= image_tag("jiggly.jpg", class: "float-end img-fluid ") %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body justify-content-center p-5">
-          <ul>
-            <li class="h4">🕹️ Nombre: <%= @user.first_name %></li>
-            <li class="h4">🕹️ Apellido: <%= @user.last_name %></li>
-            <li class="h4">🕹️ Correo eléctronico: <%= @user.email %></li>
-            <li class="h4">🕹️ Se ha unido el: <%= @user.created_at.to_fs[0,10] %></li>
-          </ul>
+  <div class="row mb-3 mx-3 ">
+    <div class="card justify-content-center">
+      <div class="card-body text-center">
+        <h2 class="p-3 fw-bold">Información</h2>
       </div>
     </div>
   </div>
-</div>
-
-<div class="row justify-content-between mb-5">
-
-    <div class="col-8 me-2">
-        <h3>Mis juegos</h3>
-
-        <% if @user.games.empty? %>
-          <small><em class="text-muted">¿Cuál es tu próxima aventura?</em></small>
-        <% end %>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Titulo</th>
-              <th scope="col">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% @user.games.each do |game| %>
-            <tr>
-              <th scope="row">
-                <%= game.title  %>
-              </th>
-              <td>
-                <%= game.price  %>
-              </td>
-            </tr>
+  <div class="row">
+    <div class="col-8 p-4">
+      <div class="about-container">
+        <div class="d-flex flex-column border border-4 border-light rounded-3 p-5">
+          <div class="card mb-3" style="max-width: 100%;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <%= image_tag("jiggly.jpg", class: "float-end img-fluid ") %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body justify-content-center p-5">
+                  <ul>
+                    <li class="h4">🕹️ Nombre: <%= @user.first_name %></li>
+                    <li class="h4">🕹️ Apellido: <%= @user.last_name %></li>
+                    <li class="h4">🕹️ Correo eléctronico: <%= @user.email %></li>
+                    <li class="h4">🕹️ Se ha unido el: <%= @user.created_at.to_fs[0,10] %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3>Mis juegos</h3>
+          <% if @user.games.empty? %>
+            <small><em class="text-muted">¿Cuál es tu próxima aventura?</em></small>
           <% end %>
-          </tbody>
-        </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @user.games.each do |game| %>
+              <tr>
+                <th scope="row">
+                  <%= game.title  %>
+                </th>
+                <td>
+                  <%= game.price  %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Mis reservas", bookings_path, class:"btn btn-warning nav-link"%>
+        </div>
       </div>
     </div>
-    <%= link_to "Mis reservas", bookings_path, class:"btn btn-warning nav-link"%>
+    <div class="col-4 border-dark border pa">
+      <h2>Notificaciones</h2>
+    </div>
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_08_132154) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_033840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,6 +43,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_132154) do
     t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_games_on_category_id"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
   create_table "users", force: :cascade do |t|
