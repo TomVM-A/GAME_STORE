@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :games, through: :bookings
   has_many :games
+  has_many :notifications, as: :recipient
 end
