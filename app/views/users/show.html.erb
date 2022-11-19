@@ -62,6 +62,9 @@
     </div>
     <div class="col-4 border-dark border pa">
       <h2>Notificaciones</h2>
+      <div class="flex justify-between">
+        <%= turbo_frame_tag "notifications", src: notifications_path %>
+      </div>
     </div>
   </div>
 </div>
